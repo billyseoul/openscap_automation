@@ -1,0 +1,34 @@
+## This should be ran in the Ansible controller node
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Update repos
+    yum:
+      update_cache: yes
+      upgrade: yes
+
+  - name: Install openscap
+    yum:
+      name: openscap
+      state: present
+
+  - name: Run openscap scanner
+    openscap-scanner:
+      profile: openscap-stig-rhel8-disa
+      target: /
+
+  - name: Generate openscap report
+    openscap-report:
+      output: openscap-report.xml
+
+  - name: Apply STIG remediations
+    openscap-xccdf-apply:
+      report: openscap-report.xml
+      reference: openscap-stig-rhel8-disa.xml
+      remediations: critical
+
+  - name: Restart firewalld
+    service:
+      name: firewalld
+      state: restarted
