@@ -44,7 +44,6 @@ resource "aws_security_group" "ansible_sg" {
   }  
 
 # The ami images used for the Ansible control and worker nodes. 1 worker and 2 control nodes. 
-# Values defined in the locals.tf file
 locals {
     control_node_ami = var.ami
     worker_node_ami = var.ami
