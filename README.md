@@ -1,7 +1,7 @@
 # openscap_automation
 # Ansible Infrastructure Deployment
 
-This Terraform configuration file is used to deploy an Ansible infrastructure in AWS. 
+This Terraform configuration file is used to deploy Ansible infrastructure in AWS. 
 It'll create a VPC, subnet, security group, and AMI instances for the control and worker nodes.
 
 # Ansible Playbook for OpenScap
