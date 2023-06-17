@@ -11,5 +11,5 @@ The playbook should do the following:
 - Install OpenScap
 - Run scans with the openscap-scanner module
 - Generate a report of current vulnerabilities and save it to an .XML file
-- Apply STIGs to be compliant
+- Apply STIGs to critical vulnerabilities for STIG compliance
 - Restart firewalld service
