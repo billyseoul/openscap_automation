@@ -8,13 +8,13 @@ terraform {
     region = var.region
   }
   
-# Creates a VPC with a /16 adress block
+# Creates a VPC with a /16 address block
 resource "aws_vpc" "ansible_vpc" {
     cidr_block = "10.0.0.0/16"
     enable_dns_hostnames = true
   }
 
- # Create a subnet in the VPC with a /24 adress block
+ # Create a subnet in the VPC with a /24 address block
 resource "aws_subnet" "ansible_subnet" {
     vpc_id = aws_vpc.ansible_vpc.id
     cidr_block = "10.0.0.0/24"
